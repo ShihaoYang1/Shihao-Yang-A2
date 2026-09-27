@@ -16,8 +16,9 @@ The API also accepts requests from a front end served on another local port. Whe
 
 | Endpoint | Purpose |
 | --- | --- |
-| `GET /api/events/featured` | The next 4 public events for the home page |
-| `GET /api/events?date=YYYY-MM-DD&location=Bondi&category=1` | Combined filter |
+| `GET /api/events` | All valid upcoming events for the home page; also supports combined filters |
+| `GET /api/events/featured` | The next 4 public events |
+| `GET /api/events?date=YYYY-MM-DD&location=Bondi&category=1` | Filter by date, location and category |
 | `GET /api/categories` | Filter categories |
 | `GET /api/events/:id` | Details of a single event |
 | `GET /api/health` | Database connection status |

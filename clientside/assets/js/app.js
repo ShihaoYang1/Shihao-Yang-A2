@@ -64,7 +64,7 @@ async function initHome() {
   const next = document.querySelector("#next-event");
   const list = document.querySelector("#featured-events");
   try {
-    const events = await getJson("/api/events/featured");
+    const events = await getJson("/api/events");
     if (!events.length) {
       next.innerHTML = "<p>No upcoming event is scheduled yet.</p>";
       list.innerHTML = "<p class=\"status-message\">Check back for new dates.</p>";
@@ -148,7 +148,7 @@ async function initEvent() {
     container.innerHTML = `<article class="detail-page content-shell">
       <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/search.html">Events</a><span aria-hidden="true">/</span><span>${escapeHtml(event.name)}</span></nav>
       <div class="detail-hero">
-        <figure class="detail-cover"><img src="${escapeHtml(event.imagePath)}" alt="Coastal scene"></figure>
+        <figure class="detail-cover"><img src="${escapeHtml(event.imagePath)}" alt=""></figure>
         <header class="detail-header"><span class="category-pill">${escapeHtml(event.category)}</span><h1>${escapeHtml(event.name).replaceAll("-", "&#8209;")}</h1><p>${escapeHtml(event.summary)}</p><div class="detail-hero-meta"><span>${escapeHtml(date.long)}</span><span>${escapeHtml(event.suburb)}</span></div></header>
       </div>
       <div class="detail-layout">
@@ -156,7 +156,7 @@ async function initEvent() {
         <aside class="booking-panel" aria-labelledby="booking-title"><h2 id="booking-title">Event details</h2><dl class="booking-facts"><div><dt>Date</dt><dd>${escapeHtml(date.long)}</dd></div><div><dt>Time</dt><dd>${escapeHtml(event.startTime)}–${escapeHtml(event.endTime)}</dd></div><div><dt>Location</dt><dd>${escapeHtml(event.locationName)}, ${escapeHtml(event.suburb)}</dd></div><div><dt>Entry</dt><dd>${price}</dd></div></dl><div class="funding"><h3>Fundraising progress</h3><div class="funding-amounts"><strong>${money(event.fundingRaised)} raised</strong><span>${money(event.fundingGoal)} goal</span></div><div class="progress-track" role="progressbar" aria-label="Fundraising progress" aria-valuenow="${percentage}" aria-valuemin="0" aria-valuemax="100"><div class="progress-fill" style="width:${percentage}%"></div></div></div><button type="button" class="primary-button register-button">Register <span aria-hidden="true">→</span></button></aside>
       </div>
     </article>`;
-    container.querySelector(".register-button").addEventListener("click", () => window.alert("Registration is under construction. Please check back soon."));
+    container.querySelector(".register-button").addEventListener("click", () => window.alert("This feature is currently under construction."));
   } catch (error) {
     container.innerHTML = `<div class="empty-state content-shell"><h3>Event not found</h3><p>${escapeHtml(error.message)}</p><a class="text-link" href="/search.html">Browse events →</a></div>`;
   }
