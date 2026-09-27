@@ -31,7 +31,7 @@ test('detail is available only for active upcoming events', async () => {
   const active = await fetch(`${base}/api/events/1`);
   const suspended = await fetch(`${base}/api/events/9`);
   assert.equal(active.status, 200);
-  assert.equal((await active.json()).name, 'The Bondi Morning Sweep');
+  assert.equal((await active.json()).name, 'North Bondi Beach Clean-up');
   assert.equal(suspended.status, 404);
 });
 
