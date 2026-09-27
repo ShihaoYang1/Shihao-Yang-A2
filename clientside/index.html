@@ -3,12 +3,13 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#f3f7f6" />
+    <meta name="theme-color" content="#103f49" />
     <meta name="description" content="Join practical coastal volunteer events around Sydney with Driftline." />
     <title>Coastal volunteer events in Sydney — Driftline</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="preload" href="/assets/images/hero-bondi.jpg" as="image" />
     <link rel="stylesheet" href="/assets/style.css" />
     <script type="module" src="/assets/js/app.js"></script>
   </head>
@@ -25,23 +26,27 @@
       </div>
     </header>
     <main id="main">
-      <div class="home-stage content-shell">
-        <section class="hero-copy" aria-labelledby="hero-title">
-          <p class="eyebrow">SYDNEY / COASTAL VOLUNTEERING</p>
-          <h1 id="hero-title">Find a day to help the coast.</h1>
-          <p class="hero-description">Join beach clean-ups, planting days and rockpool surveys around Sydney. Each event tells you where to meet and what to expect.</p>
-          <a class="primary-button" href="/search.html">Browse events <span aria-hidden="true">→</span></a>
-        </section>
-        <figure class="hero-photo">
-          <img src="/assets/images/hero-coast.jpg" alt="Waves reaching a sandy beach from above" />
-        </figure>
-        <section class="next-section" aria-labelledby="next-title">
-          <h2 class="section-label" id="next-title">Next event</h2>
-          <div id="next-event" aria-live="polite"><p class="status-message">Loading next event…</p></div>
-        </section>
-      </div>
+      <section class="home-stage" aria-labelledby="hero-title">
+        <img class="hero-photo" src="/assets/images/hero-bondi.jpg" alt="Aerial view of Bondi Beach and the surrounding coast" fetchpriority="high" />
+        <div class="hero-shade" aria-hidden="true"></div>
+        <div class="home-stage-inner content-shell">
+          <div class="hero-copy">
+            <p class="eyebrow">VOLUNTEER EVENTS / SYDNEY</p>
+            <h1 id="hero-title">Volunteer on <span>Sydney's coast.</span></h1>
+            <p class="hero-description">Beach clean-ups, rockpool surveys and planting days. Pick a date and see exactly where to meet and what to bring.</p>
+            <div class="hero-actions">
+              <a class="primary-button" href="/search.html">Find an event <span aria-hidden="true">↗</span></a>
+              <a class="hero-secondary" href="#activities">Choose an activity <span aria-hidden="true">↓</span></a>
+            </div>
+          </div>
+          <section class="next-section" aria-labelledby="next-title">
+            <h2 class="section-label" id="next-title">Next event</h2>
+            <div id="next-event" aria-live="polite"><p class="status-message">Loading next event…</p></div>
+          </section>
+        </div>
+      </section>
 
-      <section class="activities-section content-shell" aria-labelledby="activities-title">
+      <section class="activities-section content-shell" id="activities" aria-labelledby="activities-title">
         <div class="section-heading">
           <div>
             <p class="eyebrow">ACTIVITIES</p>
