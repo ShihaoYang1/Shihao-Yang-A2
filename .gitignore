@@ -1,0 +1,6 @@
+node_modules/
+.env
+*.log
+.DS_Store
+*.zip
+PROG2002 A2 Assessment Brief.pdf
