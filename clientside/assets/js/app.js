@@ -172,9 +172,6 @@ async function initEvent() {
   }
 }
 
-document.querySelectorAll(".year").forEach((node) => {
-  node.textContent = new Date().getFullYear();
-});
 const menuButton = document.querySelector(".menu-toggle");
 menuButton?.addEventListener("click", () => {
   const isOpen = menuButton.getAttribute("aria-expanded") === "true";
