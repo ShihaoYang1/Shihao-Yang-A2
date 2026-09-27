@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#12343b">
+  <meta name="description" content="Search Driftline's upcoming Sydney coastal events by date, location and activity.">
+  <title>Explore events — Driftline</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=DM+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/style.css"><script type="module" src="/assets/js/app.js"></script>
+</head>
+<body data-page="search">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header"><a class="brand" href="/" aria-label="Driftline home"><span class="brand-mark" aria-hidden="true">≈</span><span>DRIFTLINE<span class="brand-dot">.</span></span></a><button class="menu-toggle" type="button" aria-controls="site-nav" aria-expanded="false">Menu <span aria-hidden="true">☰</span></button><nav class="site-nav" id="site-nav" aria-label="Main navigation"><a href="/">Home</a><a class="active" href="/search.html" aria-current="page">Explore events</a><a class="nav-cta" href="/search.html">Find your next field day <span aria-hidden="true">↗</span></a></nav></header>
+  <main id="main">
+    <section class="page-intro"><div class="eyebrow"><span class="signal-dot"></span> THE FIELD CALENDAR / SYDNEY</div><h1>GET OUT<br><em>THERE.</em></h1><p>Find a morning on the coast that works for you.</p><span class="intro-symbol" aria-hidden="true">↗</span></section>
+    <section class="search-layout section" aria-label="Search events">
+      <aside class="filter-panel"><div class="filter-head"><span>REFINE YOUR SEARCH</span><span aria-hidden="true">✳</span></div><form id="filter-form"><label for="filter-date">Date</label><input id="filter-date" name="date" type="date"><label for="filter-location">Location</label><input id="filter-location" name="location" type="search" placeholder="Suburb or beach" maxlength="80"><label for="filter-category">Activity</label><select id="filter-category" name="category"><option value="">All activities</option></select><button class="button button-coral filter-submit" type="submit">Show events <span aria-hidden="true">↗</span></button><button class="clear-button" id="clear-filters" type="button">Clear filters <span aria-hidden="true">×</span></button></form><p class="filter-note">All events are open to newcomers. Equipment is provided where needed.</p></aside>
+      <div class="results-panel"><div class="results-heading"><div><span class="section-kicker">YOUR NEXT FIELD DAY</span><h2>Upcoming events<span class="heading-period">.</span></h2></div><span class="results-count" id="results-count" aria-live="polite">— EVENTS</span></div><div id="search-results" class="event-list" aria-live="polite"><p class="status-message">Loading events…</p></div></div>
+    </section>
+  </main>
+  <footer class="site-footer"><div class="footer-top"><a class="brand" href="/"><span class="brand-mark" aria-hidden="true">≈</span><span>DRIFTLINE<span class="brand-dot">.</span></span></a><span>Small acts. Stronger shores.</span></div><div class="footer-bottom"><span>SYDNEY, NSW · AUSTRALIA</span><nav aria-label="Footer navigation"><a href="/">Home</a><a href="/search.html">Events</a></nav><span>© <span class="year"></span> Driftline</span></div></footer>
+</body>
+</html>
+
