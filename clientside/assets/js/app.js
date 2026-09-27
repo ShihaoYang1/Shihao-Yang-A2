@@ -38,20 +38,21 @@ function money(amount) {
   }).format(Number(amount));
 }
 
-function eventRow(event) {
+function eventCard(event) {
   const url = `/event.html?id=${encodeURIComponent(event.id)}`;
   const date = dateParts(event.date);
   const price = Number(event.ticketPrice) === 0 ? "Free" : money(event.ticketPrice);
-  return `<article class="event-row">
-    <div class="date-block event-date"><strong>${escapeHtml(date.day)}</strong><span>${escapeHtml(date.month)}</span></div>
-    <a href="${url}" aria-label="View ${escapeHtml(event.name)}"><img class="event-thumb" src="${escapeHtml(event.imagePath)}" alt=""></a>
-    <div class="event-row-main">
-      <div class="event-category">${escapeHtml(event.category)}</div>
+  return `<article class="event-card">
+    <a class="event-card-image" href="${url}" aria-label="View ${escapeHtml(event.name)}">
+      <img src="${escapeHtml(event.imagePath)}" alt="">
+      <span class="event-card-date"><strong>${escapeHtml(date.day)}</strong><span>${escapeHtml(date.month)}</span></span>
+    </a>
+    <div class="event-card-body">
+      <span class="category-pill">${escapeHtml(event.category)}</span>
       <h3><a href="${url}">${escapeHtml(event.name)}</a></h3>
       <p>${escapeHtml(event.summary)}</p>
-      <div class="event-meta"><span>${escapeHtml(event.suburb)}</span><span>${escapeHtml(event.startTime)}</span><span>${price}</span></div>
+      <div class="event-card-footer"><span>${escapeHtml(event.suburb)} · ${escapeHtml(event.startTime)} · ${price}</span><a href="${url}" aria-label="View details for ${escapeHtml(event.name)}">↗</a></div>
     </div>
-    <a class="text-link" href="${url}">Details <span aria-hidden="true">→</span></a>
   </article>`;
 }
 
@@ -74,9 +75,9 @@ async function initHome() {
     next.innerHTML = `<div class="next-event-content">
       <div class="date-block"><strong>${escapeHtml(date.day)}</strong><span>${escapeHtml(date.month)}</span></div>
       <div><h3>${escapeHtml(first.name)}</h3><p>${escapeHtml(first.suburb)} · ${escapeHtml(first.startTime)} · ${escapeHtml(first.category)}</p></div>
-      <a class="text-link" href="/event.html?id=${encodeURIComponent(first.id)}">Event details <span aria-hidden="true">→</span></a>
+      <a class="text-link" href="/event.html?id=${encodeURIComponent(first.id)}"><span class="link-label">Event details for ${escapeHtml(first.name)}</span><span aria-hidden="true">↗</span></a>
     </div>`;
-    list.innerHTML = events.slice(1).map(eventRow).join("");
+    list.innerHTML = events.slice(1).map(eventCard).join("");
   } catch (error) {
     showError(next, error.message);
     list.innerHTML = "";
@@ -119,7 +120,7 @@ async function initSearch() {
       const events = await getJson(`/api/events${suffix ? `?${suffix}` : ""}`);
       count.textContent = `${events.length} ${events.length === 1 ? "event" : "events"}`;
       container.innerHTML = events.length
-        ? events.map(eventRow).join("")
+        ? events.map(eventCard).join("")
         : '<div class="empty-state"><h3>No matching events</h3><p>Try a different date, location or activity.</p></div>';
     } catch (error) {
       showError(container, error.message);
@@ -146,8 +147,10 @@ async function initEvent() {
     document.title = `${event.name} — Driftline`;
     container.innerHTML = `<article class="detail-page content-shell">
       <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/search.html">Events</a><span aria-hidden="true">/</span><span>${escapeHtml(event.name)}</span></nav>
-      <header class="detail-header"><p class="eyebrow">${escapeHtml(event.category.toUpperCase())} / ${escapeHtml(event.suburb.toUpperCase())}</p><h1>${escapeHtml(event.name).replaceAll("-", "&#8209;")}</h1><p>${escapeHtml(event.summary)}</p></header>
-      <figure class="detail-cover"><img src="${escapeHtml(event.imagePath)}" alt="Coastal scene"></figure>
+      <div class="detail-hero">
+        <figure class="detail-cover"><img src="${escapeHtml(event.imagePath)}" alt="Coastal scene"></figure>
+        <header class="detail-header"><span class="category-pill">${escapeHtml(event.category)}</span><h1>${escapeHtml(event.name).replaceAll("-", "&#8209;")}</h1><p>${escapeHtml(event.summary)}</p><div class="detail-hero-meta"><span>${escapeHtml(date.long)}</span><span>${escapeHtml(event.suburb)}</span></div></header>
+      </div>
       <div class="detail-layout">
         <div class="detail-main"><section class="detail-story" aria-labelledby="about-event"><h2 id="about-event">About this event</h2><p>${escapeHtml(event.description)}</p><h3>Purpose</h3><p>${escapeHtml(event.purpose)}</p><h3>Meeting point</h3><p>${escapeHtml(event.meetingPoint)}</p><h3>Organised by ${escapeHtml(event.organization)}</h3><p>${escapeHtml(event.organizationSummary)}</p></section></div>
         <aside class="booking-panel" aria-labelledby="booking-title"><h2 id="booking-title">Event details</h2><dl class="booking-facts"><div><dt>Date</dt><dd>${escapeHtml(date.long)}</dd></div><div><dt>Time</dt><dd>${escapeHtml(event.startTime)}–${escapeHtml(event.endTime)}</dd></div><div><dt>Location</dt><dd>${escapeHtml(event.locationName)}, ${escapeHtml(event.suburb)}</dd></div><div><dt>Entry</dt><dd>${price}</dd></div></dl><div class="funding"><h3>Fundraising progress</h3><div class="funding-amounts"><strong>${money(event.fundingRaised)} raised</strong><span>${money(event.fundingGoal)} goal</span></div><div class="progress-track" role="progressbar" aria-label="Fundraising progress" aria-valuenow="${percentage}" aria-valuemin="0" aria-valuemax="100"><div class="progress-fill" style="width:${percentage}%"></div></div></div><button type="button" class="primary-button register-button">Register <span aria-hidden="true">→</span></button></aside>

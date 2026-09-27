@@ -8,7 +8,7 @@
     <title>Coastal volunteer events in Sydney — Driftline</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="/assets/style.css" />
     <script type="module" src="/assets/js/app.js"></script>
   </head>
@@ -25,32 +25,52 @@
       </div>
     </header>
     <main id="main">
-      <section class="home-hero content-shell" aria-labelledby="hero-title">
-        <div class="hero-copy">
-          <p class="eyebrow">SYDNEY COASTAL VOLUNTEERING</p>
+      <div class="home-stage content-shell">
+        <section class="hero-copy" aria-labelledby="hero-title">
+          <p class="eyebrow">SYDNEY / COASTAL VOLUNTEERING</p>
           <h1 id="hero-title">Find a day to help the coast.</h1>
           <p class="hero-description">Join beach clean-ups, planting days and rockpool surveys around Sydney. Each event tells you where to meet and what to expect.</p>
           <a class="primary-button" href="/search.html">Browse events <span aria-hidden="true">→</span></a>
-        </div>
+        </section>
         <figure class="hero-photo">
           <img src="/assets/images/hero-coast.jpg" alt="Waves reaching a sandy beach from above" />
         </figure>
-      </section>
+        <section class="next-section" aria-labelledby="next-title">
+          <h2 class="section-label" id="next-title">Next event</h2>
+          <div id="next-event" aria-live="polite"><p class="status-message">Loading next event…</p></div>
+        </section>
+      </div>
 
-      <section class="next-section content-shell" aria-labelledby="next-title">
-        <h2 class="section-label" id="next-title">Next event</h2>
-        <div id="next-event" aria-live="polite"><p class="status-message">Loading next event…</p></div>
-      </section>
-
-      <section class="about-section content-shell" aria-labelledby="about-title">
-        <figure class="about-photo">
-          <img src="/assets/images/cleanup.jpg" alt="Volunteers collecting litter on a beach" loading="lazy" />
-        </figure>
-        <div class="about-copy">
-          <p class="eyebrow">ABOUT DRIFTLINE</p>
-          <h2 id="about-title">A community group for Sydney's coast</h2>
-          <p>Driftline organises local days for people who want to care for beaches, rockpools and coastal paths. Volunteers collect litter, record intertidal species and help restore native plants.</p>
-          <p>You can join for a single morning. The event details explain the work, meeting point and what to bring.</p>
+      <section class="activities-section content-shell" aria-labelledby="activities-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">ACTIVITIES</p>
+            <h2 id="activities-title">Choose an activity</h2>
+          </div>
+          <p>Clean-ups, field surveys and planting days.</p>
+        </div>
+        <div class="activity-grid">
+          <a class="activity-card activity-cleanup" href="/search.html?category=1">
+            <span class="activity-card-label">BEACH CLEAN-UP</span>
+            <h3>Clean up the shoreline</h3>
+            <p>Collect and sort litter before it reaches the water.</p>
+            <span class="activity-card-arrow" aria-hidden="true">↗</span>
+            <img src="/assets/images/volunteers.jpg" alt="" loading="lazy" />
+          </a>
+          <a class="activity-card activity-science" href="/search.html?category=3">
+            <span class="activity-card-label">CITIZEN SCIENCE</span>
+            <h3>Explore the rockpools</h3>
+            <p>Record coastal wildlife with a volunteer guide.</p>
+            <span class="activity-card-arrow" aria-hidden="true">↗</span>
+            <img src="/assets/images/rockpool.jpg" alt="" loading="lazy" />
+          </a>
+          <a class="activity-card activity-planting" href="/search.html?category=2">
+            <span class="activity-card-label">COASTAL RESTORATION</span>
+            <h3>Care for coastal plants</h3>
+            <p>Remove weeds and help native plants take hold.</p>
+            <span class="activity-card-arrow" aria-hidden="true">↗</span>
+            <img src="/assets/images/dune-grass.jpg" alt="" loading="lazy" />
+          </a>
         </div>
       </section>
 
@@ -58,11 +78,24 @@
         <div class="section-heading">
           <div>
             <p class="eyebrow">COMING UP</p>
-            <h2 id="events-title">More upcoming events</h2>
+            <h2 id="events-title">Upcoming events</h2>
           </div>
           <a class="text-link" href="/search.html">See all events <span aria-hidden="true">→</span></a>
         </div>
-        <div id="featured-events" class="event-list" aria-live="polite"><p class="status-message">Loading events…</p></div>
+        <div id="featured-events" class="event-grid" aria-live="polite"><p class="status-message">Loading events…</p></div>
+      </section>
+
+      <section class="about-section content-shell" aria-labelledby="about-title">
+        <div class="about-copy">
+          <p class="eyebrow">ABOUT DRIFTLINE</p>
+          <h2 id="about-title">A community group for Sydney's coast</h2>
+          <p>Driftline organises local days for people who want to care for beaches, rockpools and coastal paths. Volunteers collect litter, record intertidal species and help restore native plants.</p>
+          <p>You can join for a single morning. The event details explain the work, meeting point and what to bring.</p>
+          <a class="text-link" href="/search.html">Find an event <span aria-hidden="true">→</span></a>
+        </div>
+        <figure class="about-photo">
+          <img src="/assets/images/cleanup.jpg" alt="Volunteers collecting litter on a beach" loading="lazy" />
+        </figure>
       </section>
     </main>
     <footer class="site-footer">
