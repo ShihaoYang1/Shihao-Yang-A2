@@ -51,7 +51,7 @@ function eventCard(event) {
       <span class="category-pill">${escapeHtml(event.category)}</span>
       <h3><a href="${url}">${escapeHtml(event.name)}</a></h3>
       <p>${escapeHtml(event.summary)}</p>
-      <div class="event-card-footer"><span>${escapeHtml(event.suburb)} · ${escapeHtml(event.startTime)} · ${price}</span><a href="${url}" aria-label="View details for ${escapeHtml(event.name)}">↗</a></div>
+      <div class="event-card-footer"><span>${escapeHtml(event.suburb)} · ${escapeHtml(event.startTime)} · ${price}</span><a href="${url}" aria-label="View details for ${escapeHtml(event.name)}">Details</a></div>
     </div>
   </article>`;
 }
@@ -153,7 +153,7 @@ async function initEvent() {
       </div>
       <div class="detail-layout">
         <div class="detail-main"><section class="detail-story" aria-labelledby="about-event"><h2 id="about-event">About this event</h2><p>${escapeHtml(event.description)}</p><h3>Purpose</h3><p>${escapeHtml(event.purpose)}</p><h3>Meeting point</h3><p>${escapeHtml(event.meetingPoint)}</p><h3>Organised by ${escapeHtml(event.organization)}</h3><p>${escapeHtml(event.organizationSummary)}</p></section></div>
-        <aside class="booking-panel" aria-labelledby="booking-title"><h2 id="booking-title">Event details</h2><dl class="booking-facts"><div><dt>Date</dt><dd>${escapeHtml(date.long)}</dd></div><div><dt>Time</dt><dd>${escapeHtml(event.startTime)}–${escapeHtml(event.endTime)}</dd></div><div><dt>Location</dt><dd>${escapeHtml(event.locationName)}, ${escapeHtml(event.suburb)}</dd></div><div><dt>Entry</dt><dd>${price}</dd></div></dl><div class="funding"><h3>Fundraising progress</h3><div class="funding-amounts"><strong>${money(event.fundingRaised)} raised</strong><span>${money(event.fundingGoal)} goal</span></div><div class="progress-track" role="progressbar" aria-label="Fundraising progress" aria-valuenow="${percentage}" aria-valuemin="0" aria-valuemax="100"><div class="progress-fill" style="width:${percentage}%"></div></div></div><button type="button" class="primary-button register-button">Register <span aria-hidden="true">→</span></button></aside>
+        <aside class="booking-panel" aria-labelledby="booking-title"><h2 id="booking-title">Event details</h2><dl class="booking-facts"><div><dt>Date</dt><dd>${escapeHtml(date.long)}</dd></div><div><dt>Time</dt><dd>${escapeHtml(event.startTime)}–${escapeHtml(event.endTime)}</dd></div><div><dt>Location</dt><dd>${escapeHtml(event.locationName)}, ${escapeHtml(event.suburb)}</dd></div><div><dt>Entry</dt><dd>${price}</dd></div></dl><div class="funding"><h3>Fundraising progress</h3><div class="funding-amounts"><strong>${money(event.fundingRaised)} raised</strong><span>${money(event.fundingGoal)} goal</span></div><div class="progress-track" role="progressbar" aria-label="Fundraising progress" aria-valuenow="${percentage}" aria-valuemin="0" aria-valuemax="100"><div class="progress-fill" style="width:${percentage}%"></div></div></div><button type="button" class="primary-button register-button">Register</button></aside>
       </div>
     </article>`;
     container.querySelector(".register-button").addEventListener("click", () => window.alert("This feature is currently under construction."));

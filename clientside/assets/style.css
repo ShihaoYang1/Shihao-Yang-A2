@@ -86,10 +86,9 @@ body[data-page="home"] .site-header .brand, body[data-page="home"] .site-nav a {
 .activity-cleanup { background: #e8eeeb; }
 .activity-science { background: #e3eef0; }
 .activity-planting { background: #eee9dd; }
-.activity-card-label { max-width: calc(100% - 48px); font: 600 10px var(--mono); letter-spacing: .045em; }
+.activity-card-label { font: 600 10px var(--mono); letter-spacing: .045em; }
 .activity-card h3 { max-width: 260px; margin: 40px 0 12px; font: 700 clamp(25px, 2.5vw, 34px)/1.07 var(--display); letter-spacing: -.05em; }
 .activity-card p { max-width: 270px; margin: 0 0 26px; color: #36585e; font-size: 14px; line-height: 1.5; }
-.activity-card-arrow { position: absolute; top: 23px; right: 25px; font-size: 24px; line-height: 1; }
 .activity-card img { width: calc(100% + 54px); height: 176px; max-width: none; margin: auto -27px 0; object-fit: cover; }
 .activity-cleanup img { object-position: center 45%; }
 .activity-planting img { object-position: center 35%; }
@@ -109,7 +108,7 @@ body[data-page="home"] .site-header .brand, body[data-page="home"] .site-nav a {
 .event-card h3 a:hover { text-decoration: underline; text-underline-offset: 3px; }
 .event-card-body > p { margin: 0 0 18px; color: var(--muted); font-size: 13px; line-height: 1.5; }
 .event-card-footer { display: flex; justify-content: space-between; align-items: center; gap: 10px; margin-top: auto; padding-top: 14px; border-top: 1px solid var(--line); color: #3f6166; font-size: 12px; }
-.event-card-footer a { display: grid; flex: 0 0 auto; place-items: center; width: 31px; height: 31px; color: var(--deep); font-size: 18px; }
+.event-card-footer a { flex: 0 0 auto; color: var(--deep); font-size: 12px; font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
 .event-card-footer a:hover { color: #c65b42; }
 
 .about-section { display: grid; grid-template-columns: 1fr .96fr; min-height: 455px; gap: 17px; margin-top: 110px; margin-bottom: 120px; }
